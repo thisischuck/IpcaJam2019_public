@@ -10,6 +10,7 @@ public class Platform : Skill
     public override void Activate(PlayerMechanics player)
     {
         AudioManager.Instance.Play("Mechanic");
+
         GameObject copy =  Instantiate(platform, player.transform.position, Quaternion.identity);
         Destroy(copy, duration);
     }

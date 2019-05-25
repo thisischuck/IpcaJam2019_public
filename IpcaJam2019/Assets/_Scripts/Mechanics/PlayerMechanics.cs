@@ -16,11 +16,10 @@ public class PlayerMechanics : MonoBehaviour
 
     void Update()
     {
-        //Activate Skill
         if (Input.GetKeyDown(KeyCode.Space) && activeSkill != null && !inSafeZone)
         {
             activeSkill.Activate(this);
-            GetComponent<Rigidbody2D>().MovePosition(startingPosition);
+            MoveStartingPosition();
         }
     }
 
@@ -31,5 +30,9 @@ public class PlayerMechanics : MonoBehaviour
     public void SetSafeZone(bool v)
     {
         inSafeZone = v;
+    }
+    public void MoveStartingPosition()
+    {
+        GetComponent<Rigidbody2D>().MovePosition(startingPosition);
     }
 }
