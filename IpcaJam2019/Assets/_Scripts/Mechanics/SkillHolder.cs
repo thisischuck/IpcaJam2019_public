@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SkillHolder : MonoBehaviour
 {
+    public Transform SkillParent;
     public Skill skill;
+
+    private void Start()
+    {
+        skill.SkillParent = SkillParent;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

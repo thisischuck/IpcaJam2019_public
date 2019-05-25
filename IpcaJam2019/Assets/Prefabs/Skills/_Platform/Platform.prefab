@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6878d73d8f12e3c4d8f7186b345f4187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillHolder: {fileID: 6704628871029509958, guid: a3db4f4bf5c81b5499533dd4f15834ea,
+    type: 3}
   platform: {fileID: 5021422183309666685}
 --- !u!95 &6635355280330592726
 Animator:

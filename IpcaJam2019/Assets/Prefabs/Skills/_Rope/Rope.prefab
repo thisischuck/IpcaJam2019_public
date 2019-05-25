@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416cb00c5a568e545acd5d4f945796e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillHolder: {fileID: 6704628871029509958, guid: a3db4f4bf5c81b5499533dd4f15834ea,
+    type: 3}
   Vine: {fileID: 1658031726381885580, guid: a58d1a41b20f4e44c99f2384b5b68d27, type: 3}

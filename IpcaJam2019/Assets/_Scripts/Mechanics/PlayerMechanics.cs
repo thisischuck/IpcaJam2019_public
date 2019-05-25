@@ -19,8 +19,8 @@ public class PlayerMechanics : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && activeSkill != null && !inSafeZone)
         {
-            activeSkill.Activate(this);
             MoveStartingPosition();
+            activeSkill.Activate(this);
         }
     }
 

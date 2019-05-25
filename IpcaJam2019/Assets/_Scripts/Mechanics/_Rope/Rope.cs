@@ -41,35 +41,39 @@ public class Rope : Skill
         {
             if(firstVines)
             {
-                Vector2 position = startPosition + new Vector2(0, 2);
+                Vector2 position = startPosition + new Vector2(0, 1.6f);
 
-                upVines[0] = Instantiate(Vine, position, Quaternion.identity);
+                upVines[0] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                 upVines[0].GetComponent<SpriteRenderer>().flipY = true;
                 Destroy(upVines[0], duration);
+                
+                position = startPosition - new Vector2(0, 1.6f);
 
-                position = startPosition - new Vector2(0, 2);
-
-                downVines[0] = Instantiate(Vine, position, Quaternion.identity);
+                downVines[0] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                 Destroy(downVines[0], duration);
+
+                AudioManager.Instance.Play(Sounds.Mechanic);
 
                 index = 0;
                 firstVines = false;
             }
             else if(index < vineCount - 1)
             {
-                if (upVines[index].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Rope")
-                    || downVines[index].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Rope"))
+                if (upVines[index].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+                    && downVines[index].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
                 {
                     index += 1;
-
-                    Vector2 position = upVines[index - 1].transform.position + (Vector3.up * Vine.GetComponent<SpriteRenderer>().sprite.rect.height);
-                    upVines[index] = Instantiate(Vine, position, Quaternion.identity);
+                    //Vine.GetComponent<SpriteRenderer>().sprite.rect.center.y / 10
+                    Vector2 position = upVines[index - 1].transform.position + new Vector3(0, 3.2f);
+                    upVines[index] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                     upVines[index].GetComponent<SpriteRenderer>().flipY = true;
                     Destroy(upVines[index], duration);
 
-                    position = downVines[index - 1].transform.position - (Vector3.up * Vine.GetComponent<SpriteRenderer>().sprite.rect.height);
-                    downVines[index] = Instantiate(Vine, position, Quaternion.identity);
+                    position = downVines[index - 1].transform.position - new Vector3(0, 3.2f);
+                    downVines[index] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                     Destroy(downVines[index], duration);
+
+                    AudioManager.Instance.Play(Sounds.Mechanic);
                 }
             }
             else Destroy(this);

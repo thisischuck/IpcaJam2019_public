@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TrampolineJump : MonoBehaviour
+{
+    private readonly float jumpSpeed = 10;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (collision.transform.position.y > (transform.position.y + 1.6f))
+            {
+                //Jump
+                collision.GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpSpeed;
+            }
+        }
+    }
+}
