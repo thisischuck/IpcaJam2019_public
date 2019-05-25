@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpAmount = 10;
     private float jumpForce = 0;
     public bool onGround = true;
+    public bool specialOnGround = true;
     public LayerMask groundLayers;
 
     //Collider
@@ -51,17 +52,13 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         debugDir = rb.velocity;
+        SpecialOnGround();
 
     }
 
     private void HorizontalMovement()
     {
-        if (onGround)
-            horizonalAxis = Input.GetAxis("Horizontal") * horizontalSpeed;
-        else
-            horizonalAxis = Input.GetAxis("Horizontal") * (horizontalSpeed/2);
-
-        horizonalAxis = (int)horizonalAxis;
+        horizonalAxis = Input.GetAxis("Horizontal") * horizontalSpeed;
 
         direction = new Vector2(horizonalAxis, rb.velocity.y);
 
@@ -70,12 +67,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && onGround)
+        if (Input.GetKeyDown(KeyCode.W) && (onGround || specialOnGround))
         {
             rb.velocity = Vector2.up * jumpAmount;
         }
 
-        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y <= jumpAmount && !onGround)
+        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y <= jumpAmount && (!onGround && !specialOnGround))
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2);
         }
@@ -85,10 +82,24 @@ public class PlayerMovement : MonoBehaviour
     {
         onGround = Physics2D.OverlapArea(new Vector2(transform.position.x - collider.bounds.size.x/2, transform.position.y - collider.bounds.size.y / 2), 
             new Vector2(transform.position.x + collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2), groundLayers);
+    }
 
-        if (onGround == true)
+    private void SpecialOnGround()
+    {
+        Vector2 newPos = new Vector2(transform.position.x - (collider.bounds.size.x / 2 * 1.05f), transform.position.y - (collider.bounds.size.y * 0.3f));
+        Vector2 newPos2 = new Vector2(transform.position.x + (collider.bounds.size.x / 2 * 1.05f), transform.position.y - (collider.bounds.size.y * 0.3f));
+
+        Debug.DrawRay(newPos, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
+        Debug.DrawRay(newPos2, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
+
+        if (Physics2D.Raycast(newPos, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)) || 
+            Physics2D.Raycast(newPos2, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)))
         {
-            jumpForce = 0;
+            specialOnGround = true;
+        }
+        else
+        {
+            specialOnGround = false;
         }
     }
 
