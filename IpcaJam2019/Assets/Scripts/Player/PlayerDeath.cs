@@ -21,7 +21,6 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("AY");
         if (collision.gameObject.tag == "Obstacle")
         {
             Die();

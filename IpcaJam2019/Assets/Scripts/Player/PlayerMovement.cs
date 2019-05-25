@@ -56,12 +56,14 @@ public class PlayerMovement : MonoBehaviour
         currentLayerMask = groundLayers;
         action += HorizontalMovement;
         action += isPlayerGrounded;
+        action += SpecialOnGround;
         action += Jump;
     }
     public void UnsetNormalMovement()
     {
         action -= HorizontalMovement;
         action -= isPlayerGrounded;
+        action -= SpecialOnGround;
         action -= Jump;
     }
     public void SetRopeMovement()
