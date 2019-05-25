@@ -9,6 +9,7 @@ public class TrapCollision : MonoBehaviour
         PlatformMover,
         TapeteRolante,
         CrushSpikes,
+        FallingPlatform
     }
 
     public TrapType type;
@@ -26,13 +27,13 @@ public class TrapCollision : MonoBehaviour
     [Range(0.5f, 2f)]
     public float seconds;
 
-    Vector3 moveFrom;
+    Vector3 moveFrom, velocity;
 
     bool tmp, started;
 
     void Start()
     {
-        if (type == TrapType.CrushSpikes)
+        if (type == TrapType.CrushSpikes || type == TrapType.PlatformMover)
             moveFrom = ActualTrap.transform.position;
     }
 
@@ -44,7 +45,11 @@ public class TrapCollision : MonoBehaviour
             case TrapType.CrushSpikes:
                 CrushSpikesUpdate();
                 break;
-            case TrapType.TapeteRolante:
+            case TrapType.PlatformMover:
+                PlatformMoverUpdate();
+                break;
+            case TrapType.FallingPlatform:
+                FallingPlatformUpdate();
                 break;
         }
     }
@@ -55,6 +60,13 @@ public class TrapCollision : MonoBehaviour
             if (col.gameObject.tag.Equals("Player"))
             {
                 tmp = true;
+            }
+
+        if (type == TrapType.FallingPlatform)
+            if (col.gameObject.tag.Equals("Player"))
+            {
+                tmp = false;
+                StartCoroutine("StopWait");
             }
     }
 
@@ -83,12 +95,43 @@ public class TrapCollision : MonoBehaviour
         }
     }
 
+    void PlatformMoverUpdate()
+    {
+
+        if (tmp)
+        {
+            ActualTrap.transform.position = Vector3.SmoothDamp(ActualTrap.transform.position, MoveTo.position, ref velocity, seconds);
+
+            if (Mathf.Abs((ActualTrap.transform.position - MoveTo.position).x) < 0.1f)
+            {
+                tmp = false;
+            }
+        }
+        else
+        {
+            ActualTrap.transform.position = Vector3.SmoothDamp(ActualTrap.transform.position, moveFrom, ref velocity, seconds);
+
+
+            if (Mathf.Abs((ActualTrap.transform.position - moveFrom).x) < 0.1f)
+            {
+                tmp = true;
+            }
+        }
+    }
+
+    void FallingPlatformUpdate()
+    {
+        if (tmp)
+        {
+            ActualTrap.transform.position = Vector3.Lerp(ActualTrap.transform.position, MoveTo.position, speed);
+        }
+    }
 
     IEnumerator StopWait()
     {
         started = true;
         yield return new WaitForSecondsRealtime(seconds);
-        tmp = false;
+        tmp = !tmp;
         started = false;
     }
 }
