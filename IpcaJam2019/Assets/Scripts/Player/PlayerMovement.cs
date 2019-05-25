@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpAmount = 10;
     private float jumpForce = 0;
     public bool onGround = true;
+    public bool specialOnGround = true;
     public LayerMask groundLayers;
     public LayerMask vinesLayers;
     public LayerMask currentLayerMask;
@@ -120,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && onGround)
+        if (Input.GetKeyDown(KeyCode.W) && (onGround || specialOnGround))
         {
             rb.velocity = Vector2.up * jumpAmount;
         }
@@ -136,10 +137,24 @@ public class PlayerMovement : MonoBehaviour
     {
         onGround = Physics2D.OverlapArea(new Vector2(transform.position.x - collider.bounds.size.x/2, transform.position.y - collider.bounds.size.y / 2), 
             new Vector2(transform.position.x + collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2), groundLayers);
+    }
 
-        if (onGround == true)
+    private void SpecialOnGround()
+    {
+        Vector2 newPos = new Vector2(transform.position.x - (collider.bounds.size.x / 2 * 1.05f), transform.position.y - (collider.bounds.size.y * 0.3f));
+        Vector2 newPos2 = new Vector2(transform.position.x + (collider.bounds.size.x / 2 * 1.05f), transform.position.y - (collider.bounds.size.y * 0.3f));
+
+        Debug.DrawRay(newPos, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
+        Debug.DrawRay(newPos2, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
+
+        if (Physics2D.Raycast(newPos, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)) || 
+            Physics2D.Raycast(newPos2, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)))
         {
-            jumpForce = 0;
+            specialOnGround = true;
+        }
+        else
+        {
+            specialOnGround = false;
         }
     }
     #endregion
