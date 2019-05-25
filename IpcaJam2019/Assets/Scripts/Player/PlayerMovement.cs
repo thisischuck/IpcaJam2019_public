@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
 
         //Movement
         HorizontalMovement();
@@ -66,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = direction;
     }
 
-
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.W) && onGround)
@@ -90,4 +91,7 @@ public class PlayerMovement : MonoBehaviour
             jumpForce = 0;
         }
     }
+
+
+  
 }
