@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Platform : Skill
 {
-    private float duration = 5;
+    private readonly float duration = 5;
     public GameObject platform;
 
     public override void Activate(PlayerMechanics player)
