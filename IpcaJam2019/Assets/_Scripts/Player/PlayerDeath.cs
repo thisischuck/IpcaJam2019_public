@@ -51,7 +51,7 @@ public class PlayerDeath : MonoBehaviour
 
     IEnumerator MoveToPos()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.75f);
         transform.position = new Vector3(startingPosition.x, startingPosition.y, startingPosition.z);
         GetComponent<Rigidbody2D>().isKinematic = false;
         GetComponent<PlayerMovement>().Respawn();
@@ -59,5 +59,3 @@ public class PlayerDeath : MonoBehaviour
     }
 }
 
-        yield return new WaitForSeconds(0.75f);
-        transform.position = new Vector3(startingPosition.x, startingPosition.y, startingPosition.z);

@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     public void UnsetDeath()
     {
         Physics2D.gravity = new Vector2(0, -19.8f);
+        UnsetRopeMovement();
         SetNormalMovement();
     }
 
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void UnsetRopeMovement()
     {
+        currentLayerMask = groundLayers;
         action -= RopeMovement;
         rb.velocity = new Vector3(rb.velocity.x, 0);
         Physics2D.gravity = new Vector2(0, -19.8f);

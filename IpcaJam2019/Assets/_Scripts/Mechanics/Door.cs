@@ -28,6 +28,7 @@ public class Door : Singleton<Door>
             MapScreenEffects.Instance.EndEffect();
             if (!nextlvl)
             {
+                LevelsController.levels[LevelsController.currentLevel] = 0;
                 LevelsController.currentLevel++;
                 nextlvl = true;
             }

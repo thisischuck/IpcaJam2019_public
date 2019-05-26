@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LevelsController.numLevels = 1;
+        LevelsController.numLevels = 9;
         LevelsController.Start();
         if (slider != null)
             slider.value = LevelsController.volume;

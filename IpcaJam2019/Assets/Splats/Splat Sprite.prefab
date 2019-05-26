@@ -77,7 +77,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8033038574817916343
@@ -95,6 +95,6 @@ MonoBehaviour:
   backgroundTint: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
   splatLocation: 0
   sprites:
-  - {fileID: 21300000, guid: 56b6712db1ed26b429fa906b71343710, type: 3}
-  - {fileID: 21300000, guid: ef4bbabc771725e478b0872525fa2aaf, type: 3}
-  - {fileID: 21300000, guid: 76835d4a90ccf7b41aebfc1c182692c5, type: 3}
+  - {fileID: 21300000, guid: e01529849a729a84da351e74e45ba26d, type: 3}
+  - {fileID: 21300000, guid: b19924349cc27554f9ebac30ee17cb46, type: 3}
+  - {fileID: 21300000, guid: d40a3fd1843140745901cfc198e6f435, type: 3}
