@@ -27,6 +27,7 @@ public class AudioManager : Singleton<AudioManager>
             Debug.LogWarning("Sound " + s.name + " not found!");
             return;
         }
+        s.volume = LevelsController.volume;
         s.source.Play();
     }
 

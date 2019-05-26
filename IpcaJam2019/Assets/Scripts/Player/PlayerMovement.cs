@@ -51,6 +51,23 @@ public class PlayerMovement : MonoBehaviour
         IsPlayerOnVines();
     }
 
+    #region Death Action
+    public void SetDeath()
+    {
+        UnsetNormalMovement();
+        UnsetRopeMovement();
+        Physics2D.gravity = new Vector2(0, 0);
+        rb.velocity = Vector2.zero;
+    }
+
+    public void UnsetDeath()
+    {
+        Physics2D.gravity = new Vector2(0, -19.8f);
+        SetNormalMovement();
+    }
+
+    #endregion
+
     #region Control Action
     public void SetNormalMovement()
     {

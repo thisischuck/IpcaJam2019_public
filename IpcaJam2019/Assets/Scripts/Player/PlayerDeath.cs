@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     private Vector2 startingPosition;
+    bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle" && !dead)
         {
             Die();
         }
@@ -32,19 +33,25 @@ public class PlayerDeath : MonoBehaviour
 
     public void MoveStartingPosition()
     {
+        GetComponent<PlayerMovement>().SetDeath();
+        dead = true;
+        Camera.main.GetComponent<CameraController>().ApplyChromatic();
+        Camera.main.GetComponent<CameraController>().ShakeCamera();
         StartCoroutine(MoveToPos());
         GetComponent<SplatParticleSystem>().CreateBothSplats(transform.position);
     }
 
     public void Die()
     {
+        AudioManager.Instance.Play("Death");
         MoveStartingPosition();
-        //AudioManager.Instance.Play();
     }
 
     IEnumerator MoveToPos()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
+        GetComponent<PlayerMovement>().UnsetDeath();
+        dead = false;
         GetComponent<Rigidbody2D>().MovePosition(startingPosition);
     }
 }
