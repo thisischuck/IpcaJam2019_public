@@ -29,7 +29,7 @@ public class TrapCollision : MonoBehaviour
 
     Vector3 moveFrom, velocity;
 
-    bool tmp, started;
+    public bool tmp, started;
 
     void Start()
     {
@@ -66,8 +66,10 @@ public class TrapCollision : MonoBehaviour
             if (col.gameObject.tag.Equals("Player"))
             {
                 tmp = false;
-                StartCoroutine("StopWait");
+                if (!started)
+                    StartCoroutine("StopWait");
             }
+
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -79,6 +81,8 @@ public class TrapCollision : MonoBehaviour
                 col.attachedRigidbody.AddForce(Vector2.right * force, ForceMode2D.Force);
             }
         }
+
+
     }
 
     void CrushSpikesUpdate()
