@@ -20,6 +20,27 @@ public class SplatParticleSystem : MonoBehaviour
         
     }
 
+    public void CreateBothSplats(Vector2 pos)
+    {
+        splatSystem.Play();
+        SplatOnTheWall(pos);
+    }
+
+    void Play()
+    {
+        splatSystem.Play();
+    }
+
+    void SplatOnTheWall(Vector2 pos)
+    {
+        GameObject splat = Instantiate(splatPrefab, pos, Quaternion.identity);
+        if (splatHolder != null)
+            splat.transform.SetParent(splatHolder);
+
+        Splat splatScript = splat.GetComponent<Splat>();
+        splatScript.CreateSplat(Splat.SplatLocation.Background);
+    }
+
     private void OnParticleCollision(GameObject other)
     {
         ParticlePhysicsExtensions.GetCollisionEvents(splatSystem, other, collisionEvents);

@@ -16,7 +16,10 @@ public class PlayerDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Die();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,12 +32,19 @@ public class PlayerDeath : MonoBehaviour
 
     public void MoveStartingPosition()
     {
-        GetComponent<Rigidbody2D>().MovePosition(startingPosition);
+        StartCoroutine(MoveToPos());
+        GetComponent<SplatParticleSystem>().CreateBothSplats(transform.position);
     }
 
     public void Die()
     {
         MoveStartingPosition();
         //AudioManager.Instance.Play();
+    }
+
+    IEnumerator MoveToPos()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody2D>().MovePosition(startingPosition);
     }
 }
