@@ -5124,11 +5124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingPlatfrom (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7226581990416411365, guid: f648b3584df71e84799385bab39f864f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7226581990416411366, guid: f648b3584df71e84799385bab39f864f,
         type: 3}
       propertyPath: m_LocalPosition.x
