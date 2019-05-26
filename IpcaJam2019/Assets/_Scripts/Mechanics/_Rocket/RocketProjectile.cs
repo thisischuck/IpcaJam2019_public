@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RocketProjectile : MonoBehaviour
 {
-    private float speed = 5f;
+    private float speed = 15f;
     private Vector2 direction;
     private Rigidbody2D rb;
 

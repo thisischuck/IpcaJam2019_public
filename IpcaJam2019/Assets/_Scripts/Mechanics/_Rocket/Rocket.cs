@@ -17,10 +17,13 @@ public class Rocket : Skill
             if(Input.GetKey(KeyCode.A))
             {
                 direction = new Vector2(-1, 1);
+                copy.transform.eulerAngles = new Vector3(0, 0, 45);
+
             }
             else if(Input.GetKey(KeyCode.D))
             {
                 direction = new Vector2(1, 1);
+                copy.transform.eulerAngles = new Vector3(0, 0, -45);
             }
             else
             {
@@ -30,10 +33,12 @@ public class Rocket : Skill
         else if(Input.GetKey(KeyCode.A))
         {
             direction = new Vector2(-1, 0);
+            copy.transform.eulerAngles = new Vector3(0, 0, 90);
         }
         else if(Input.GetKey(KeyCode.D))
         {
             direction = new Vector2(1, 0);
+            copy.transform.eulerAngles = new Vector3(0, 0, -90);
         }
         else
         {

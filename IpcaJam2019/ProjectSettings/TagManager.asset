@@ -16,9 +16,9 @@ TagManager:
   - 
   - GroundLayer
   - VinesLayer
-  - 
-  - 
-  - 
+  - ButtonLayer
+  - PlayerLayer
+  - PlatformLayer
   - 
   - 
   - 

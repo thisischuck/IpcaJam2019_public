@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public bool specialOnGround = true;
     public LayerMask groundLayers;
     public LayerMask vinesLayers;
+    public LayerMask platformLayers;
     public LayerMask currentLayerMask;
 
     //Collider
@@ -137,8 +138,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void isPlayerGrounded()
     {
-        onGround = Physics2D.OverlapArea(new Vector2(transform.position.x - collider.bounds.size.x/2, transform.position.y - collider.bounds.size.y / 2), 
-            new Vector2(transform.position.x + collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2), groundLayers);
+        onGround = (Physics2D.OverlapArea(new Vector2(transform.position.x - collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2),
+            new Vector2(transform.position.x + collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2), groundLayers)
+            ||
+            Physics2D.OverlapArea(new Vector2(transform.position.x - collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2),
+            new Vector2(transform.position.x + collider.bounds.size.x / 2, transform.position.y - collider.bounds.size.y / 2), platformLayers));
     }
 
     private void SpecialOnGround()

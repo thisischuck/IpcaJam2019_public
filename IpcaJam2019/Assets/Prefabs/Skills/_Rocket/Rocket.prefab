@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillParent: {fileID: 0}
+  Icon: {fileID: 21300000, guid: d2e34bc91074f8b40afc89806cad0f55, type: 3}
   RocketProjectile: {fileID: 7945282561767364282, guid: d6cb8aff95578804fa1a34cfe327f19e,
     type: 3}

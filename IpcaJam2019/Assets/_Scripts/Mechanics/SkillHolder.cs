@@ -10,6 +10,7 @@ public class SkillHolder : MonoBehaviour
     private void Start()
     {
         skill.SkillParent = SkillParent;
+        transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = skill.Icon;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

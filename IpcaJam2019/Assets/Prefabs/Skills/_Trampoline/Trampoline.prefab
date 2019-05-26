@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillParent: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 77644bbb58c340a4384ebfa7b2f10786, type: 3}
   trampoline: {fileID: 3701056273903904755, guid: 4e66e71a73085d14ebc3bf1d7d56121f,
     type: 3}

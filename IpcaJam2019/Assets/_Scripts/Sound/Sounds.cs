@@ -10,4 +10,5 @@ public static class Sounds
     public static string Jump = "Jump";
     public static string Music = "Music";
     public static string Mechanic = "Mechanic";
+    public static string MainMusic = "MainMusic2";
 }
