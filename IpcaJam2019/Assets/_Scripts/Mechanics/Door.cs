@@ -21,7 +21,7 @@ public class Door : Singleton<Door>
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && isOpen)
+        if (collision.tag == "Player" && isOpen)
         {
             Debug.Log("Entrou");
 
@@ -36,7 +36,7 @@ public class Door : Singleton<Door>
             collision.GetComponent<PlayerMovement>().UnsetRopeMovement();
             collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, collision.GetComponent<Rigidbody2D>().velocity.y);
             StartCoroutine(HolUpAMinute());
-           
+
 
         }
     }
