@@ -17,7 +17,7 @@ public class MapScreenEffects : Singleton<MapScreenEffects>
     {
         transform.position = Camera.main.WorldToScreenPoint(Player.transform.position);
         animator.StartPlayback();
-        animator.speed = -1.5f;
+        animator.speed = -2f;
         animator.Play("LevelIntro");
     }
 }
