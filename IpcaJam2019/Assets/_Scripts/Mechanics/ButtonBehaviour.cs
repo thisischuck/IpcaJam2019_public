@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour
+public class ButtonBehaviour : MonoBehaviour
 {
     public enum ButtonType { Normal, Duration, Hold }
 
