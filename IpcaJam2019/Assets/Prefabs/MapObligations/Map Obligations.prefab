@@ -583,6 +583,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 824356498263915112}
     m_Modifications:
+    - target: {fileID: 2368158083938331263, guid: a9693882dc4df8743bdb0b030ab42188,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 6787969977271518886, guid: a9693882dc4df8743bdb0b030ab42188,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -638,11 +643,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2368158083938331263, guid: a9693882dc4df8743bdb0b030ab42188,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9693882dc4df8743bdb0b030ab42188, type: 3}
 --- !u!4 &3786665466709058309 stripped
@@ -658,6 +658,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 824356498263915112}
     m_Modifications:
+    - target: {fileID: 8983087691217445652, guid: 5195601f7cc2f0042a64d8e84f89b987,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983087691217445652, guid: 5195601f7cc2f0042a64d8e84f89b987,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8983087691217445640, guid: 5195601f7cc2f0042a64d8e84f89b987,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -762,16 +772,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983087691217445652, guid: 5195601f7cc2f0042a64d8e84f89b987,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983087691217445652, guid: 5195601f7cc2f0042a64d8e84f89b987,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8983087692047624757, guid: 5195601f7cc2f0042a64d8e84f89b987,
         type: 3}
@@ -901,16 +901,6 @@ PrefabInstance:
     - target: {fileID: 3966048233140342473, guid: c5debdccd2de4bb4491fcc36c2508a4e,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966048232853552149, guid: c5debdccd2de4bb4491fcc36c2508a4e,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3966048232853552149, guid: c5debdccd2de4bb4491fcc36c2508a4e,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

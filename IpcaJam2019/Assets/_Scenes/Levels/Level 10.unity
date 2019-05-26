@@ -942,6 +942,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -369.4
       objectReference: {fileID: 0}
+    - target: {fileID: 824356498319276567, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2996504291985982400, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -987,6 +992,12 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1928657335080419903, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2415072519292635534, guid: d1e7d42e0ada7b04ba4821b65352c8e5,
+        type: 3}
     - target: {fileID: 6787913231433481129, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
       propertyPath: m_havePropertiesChanged

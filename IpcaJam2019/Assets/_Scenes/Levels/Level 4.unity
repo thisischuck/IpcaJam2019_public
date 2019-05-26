@@ -202,18 +202,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 28442257}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &115985758 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6787913232505382392, guid: e42d033566608c844bd8459b23ad3e5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1383184029}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &198186859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4674271907460178025, guid: 17aec380742129f4ba701fd8fdc8727c,
@@ -550,7 +538,7 @@ PrefabInstance:
         type: 3}
       propertyPath: SkillDisplay
       value: 
-      objectReference: {fileID: 115985758}
+      objectReference: {fileID: 0}
     - target: {fileID: 1159310990706345572, guid: 6ede322e0b9966a4a80e053590da57c6,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2902,6 +2890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: isOpen
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669574886653259129, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 361
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669574886653259129, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42d033566608c844bd8459b23ad3e5d, type: 3}

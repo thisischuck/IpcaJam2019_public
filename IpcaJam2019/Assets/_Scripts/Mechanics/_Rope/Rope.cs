@@ -9,7 +9,7 @@ public class Rope : Skill
     private int index;
 
     private readonly int vineCount = 5;
-    private readonly float duration = 5;
+    private readonly float duration = 10;
 
     private bool canStart;
     private bool firstVines;
@@ -46,7 +46,7 @@ public class Rope : Skill
                 upVines[0] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                 upVines[0].GetComponent<SpriteRenderer>().flipY = true;
                 Destroy(upVines[0], duration);
-                
+
                 position = startPosition - new Vector2(0, 0.8f);
 
                 position = startPosition - new Vector2(0, 0.8f);
