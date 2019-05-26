@@ -49,7 +49,7 @@ public class Splat : MonoBehaviour
 
     private void SetRandomSize()
     {
-       float size = Random.Range(1f, 5f);
+       float size = Random.Range(2f, 3f);
        transform.localScale *= size;
     }
 
@@ -65,7 +65,7 @@ public class Splat : MonoBehaviour
             case SplatLocation.Background:
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
                 spriteRenderer.sortingOrder = 0;
-                transform.localScale *= Random.Range(1f, 2f);
+                transform.localScale *= Random.Range(2f, 2.5f);
                 break;
             case SplatLocation.Foreground:
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;

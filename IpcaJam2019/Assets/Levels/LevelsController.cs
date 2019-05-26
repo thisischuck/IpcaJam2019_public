@@ -7,7 +7,7 @@ public static class LevelsController
     public static List<int> levels;
     public static int numLevels;
 
-    public static float volume;
+    public static float volume = 100f;
 
     // Start is called before the first frame update
 
