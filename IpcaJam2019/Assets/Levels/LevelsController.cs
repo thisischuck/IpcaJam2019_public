@@ -6,6 +6,7 @@ public static class LevelsController
 {
     public static List<int> levels;
     public static int numLevels;
+    public static int currentLevel = 0;
 
     public static float volume = 100f;
 

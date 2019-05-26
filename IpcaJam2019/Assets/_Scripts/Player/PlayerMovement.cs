@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Animator
     private Animator animator;
+    private bool rotated;
 
     //Debug
     public Vector2 debugDir;
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         Physics2D.gravity = new Vector2(0, -19.8f);
 
+        rotated = true;
         SetNormalMovement();
     }
 
@@ -54,6 +56,29 @@ public class PlayerMovement : MonoBehaviour
 
         IsPlayerOnVines();
     }
+
+    #region Death Action
+    public void SetDeath()
+    {
+        UnsetNormalMovement();
+        UnsetRopeMovement();
+        Physics2D.gravity = new Vector2(0, 0);
+        rb.velocity = Vector2.zero;
+    }
+
+    public void Respawn()
+    {
+        GetComponent<Animator>().Play("Respawn");
+        GetComponent<PlayerMovement>().UnsetDeath();
+    }
+
+    public void UnsetDeath()
+    {
+        Physics2D.gravity = new Vector2(0, -19.8f);
+        SetNormalMovement();
+    }
+
+    #endregion
 
     #region Control Action
     public void SetNormalMovement()
@@ -132,12 +157,18 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = direction;
 
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-        else transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
+        if (Input.GetAxis("Horizontal") > 0.1f)
+        {
+            transform.localScale = new Vector3(5f, transform.localScale.y, transform.localScale.z);
+            rotated = false;
+        }
+        else if(Input.GetAxis("Horizontal") < -0.1f)
+        {
+            rotated = true;
+            float a = Mathf.Abs(transform.localScale.x);
+            transform.localScale = new Vector3(-5, transform.localScale.y, transform.localScale.z);
+        }
     }
     private void Jump()
     {
@@ -170,8 +201,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(newPos, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
         Debug.DrawRay(newPos2, Vector2.down * (collider.bounds.size.y/3 + 0.1f));
 
-        if (Physics2D.Raycast(newPos, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)) || 
-            Physics2D.Raycast(newPos2, Vector2.down, (collider.bounds.size.y / 3 + 0.1f)))
+
+        if (Physics2D.Raycast(newPos, Vector2.down, (collider.bounds.size.y / 3 + 0.1f), groundLayers) || 
+            Physics2D.Raycast(newPos2, Vector2.down, (collider.bounds.size.y / 3 + 0.1f), groundLayers))
         {
             specialOnGround = true;
         }

@@ -32,8 +32,11 @@ public class ButtonController : MonoBehaviour
 
     public void TaskOnClick()
     {
-        if(!levelInfo.locked)
-            SceneManager.LoadScene(levelInfo.levelName);
+        if (!levelInfo.locked)
+        {
+            LevelsController.currentLevel = levelInfo.num;
+            SceneManager.LoadScene(2 + LevelsController.currentLevel);
+        }
     }   
 
     // Update is called once per frame

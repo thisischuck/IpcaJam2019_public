@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    private Vector2 startingPosition;
+    private Vector3 startingPosition;
     bool dead = false;
 
     // Start is called before the first frame update
@@ -37,12 +37,14 @@ public class PlayerDeath : MonoBehaviour
         dead = true;
         Camera.main.GetComponent<CameraController>().ApplyChromatic();
         Camera.main.GetComponent<CameraController>().ShakeCamera();
+        GetComponent<Rigidbody2D>().isKinematic = true;
         StartCoroutine(MoveToPos());
         GetComponent<SplatParticleSystem>().CreateBothSplats(transform.position);
     }
 
     public void Die()
     {
+        //GetComponent<Animator>().Play("Respawn");
         AudioManager.Instance.Play("Death");
         MoveStartingPosition();
     }
@@ -50,8 +52,9 @@ public class PlayerDeath : MonoBehaviour
     IEnumerator MoveToPos()
     {
         yield return new WaitForSeconds(0.6f);
-        GetComponent<PlayerMovement>().UnsetDeath();
+        transform.position = new Vector3(startingPosition.x, startingPosition.y, startingPosition.z);
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        GetComponent<PlayerMovement>().Respawn();
         dead = false;
-        GetComponent<Rigidbody2D>().MovePosition(startingPosition);
     }
 }
