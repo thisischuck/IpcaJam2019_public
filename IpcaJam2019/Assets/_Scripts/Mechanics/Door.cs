@@ -6,6 +6,16 @@ public class Door : Singleton<Door>
 {
     public bool isOpen;
 
+    public Sprite DoorOpen;
+    public Sprite DoorClosed;
+
+    private SpriteRenderer Sprite;
+
+    private void Start()
+    {
+        Sprite = GetComponent<SpriteRenderer>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && isOpen)
@@ -23,5 +33,10 @@ public class Door : Singleton<Door>
     public void SetDoor(bool open)
     {
         isOpen = open;
+        if (open)
+        {
+            Sprite.sprite = DoorOpen;
+        }
+        else Sprite.sprite = DoorClosed;
     }
 }
