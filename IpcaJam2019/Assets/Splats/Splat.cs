@@ -13,6 +13,7 @@ public class Splat : MonoBehaviour
     public Color backgroundTint;
     public SplatLocation splatLocation;
     private SpriteRenderer spriteRenderer;
+    public List<Sprite> sprites;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class Splat : MonoBehaviour
         SetRandomSize();
         SetLocation();
         SetRandomRotation();
+        SetRandomSprite();
     }
 
     // Update is called once per frame
@@ -40,10 +42,15 @@ public class Splat : MonoBehaviour
         
     }
 
+    private void SetRandomSprite()
+    {
+        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
+    }
+
     private void SetRandomSize()
     {
-       Vector2 size = new Vector2(Random.Range(1, 5), Random.Range(1, 5));
-        transform.localScale *= size;
+       float size = Random.Range(1f, 5f);
+       transform.localScale *= size;
     }
 
     private void SetRandomRotation()
@@ -56,8 +63,9 @@ public class Splat : MonoBehaviour
         switch(splatLocation)
         {
             case SplatLocation.Background:
-                spriteRenderer.color = backgroundTint;
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
                 spriteRenderer.sortingOrder = 0;
+                transform.localScale *= Random.Range(1f, 2f);
                 break;
             case SplatLocation.Foreground:
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
