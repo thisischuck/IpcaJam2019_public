@@ -46,6 +46,8 @@ public class Rope : Skill
                 upVines[0] = Instantiate(Vine, position, Quaternion.identity, SkillParent);
                 upVines[0].GetComponent<SpriteRenderer>().flipY = true;
                 Destroy(upVines[0], duration);
+                
+                position = startPosition - new Vector2(0, 0.8f);
 
                 position = startPosition - new Vector2(0, 0.8f);
 
