@@ -109,48 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &2222587131050685860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2222587131050685864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1ec1397f3ac024aa7a040e1bfc6493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalSpeed: 5
-  jumpAmount: 10
-  onGround: 1
-  specialOnGround: 1
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  vinesLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  platformLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  currentLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  debugDir: {x: 0, y: 0}
---- !u!114 &3101325116682576590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2222587131050685864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecda960d8583ce3469a72ea3c1c8498a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Constraints: 4
 --- !u!61 &2222587131050685861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1ec1397f3ac024aa7a040e1bfc6493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 5
+  horizontalSpeed: 8
   jumpAmount: 10
   onGround: 1
   specialOnGround: 1

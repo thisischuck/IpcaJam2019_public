@@ -3314,10 +3314,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -373.41
       objectReference: {fileID: 0}
+    - target: {fileID: 8749714427951177072, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3118890354175110112, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928657335080419903, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2415072519292635534, guid: d1e7d42e0ada7b04ba4821b65352c8e5,
+        type: 3}
+    - target: {fileID: 5174249317707614534, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409460928291213344, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: isOpen
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6787913231433481129, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
@@ -3342,6 +3363,7 @@ GameObject:
   - component: {fileID: 1604443207}
   - component: {fileID: 1604443206}
   - component: {fileID: 1604443205}
+  - component: {fileID: 1604443208}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3413,6 +3435,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604443208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604443204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2537d6706b185b745b7fc56cd3f754c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chromaticDisplacement: 0
+  shakeMagnitude: 0.7
+  defaultShakeDuration: 0.5
 --- !u!1001 &1630913443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3528,7 +3565,7 @@ PrefabInstance:
     - target: {fileID: 3147651445072820005, guid: 07ff9fdd63941de4e822c78e85a6606a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.617321
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3147651445072820005, guid: 07ff9fdd63941de4e822c78e85a6606a,
         type: 3}

@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 93121197}
   - component: {fileID: 93121196}
   - component: {fileID: 93121195}
+  - component: {fileID: 93121198}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -333,6 +334,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93121198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93121194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2537d6706b185b745b7fc56cd3f754c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chromaticDisplacement: 0
+  shakeMagnitude: 0.7
+  defaultShakeDuration: 0.5
 --- !u!1001 &94274581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,12 +364,12 @@ PrefabInstance:
     - target: {fileID: 5579841272578509646, guid: 3038e2330baa6f844b819d874e0fbcd5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5579841272578509646, guid: 3038e2330baa6f844b819d874e0fbcd5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 5579841272578509646, guid: 3038e2330baa6f844b819d874e0fbcd5,
         type: 3}
@@ -2299,6 +2315,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crush (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406715, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2030409580539406712, guid: 31abb732b5864d6459041be9ebc9ce5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2369,6 +2390,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.70764
       objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: seconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409582445936680, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31abb732b5864d6459041be9ebc9ce5d, type: 3}
 --- !u!4 &280654093 stripped
@@ -2388,6 +2429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crush (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406715, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2030409580539406712, guid: 31abb732b5864d6459041be9ebc9ce5d,
         type: 3}
@@ -2458,6 +2504,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.70764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: seconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409582445936680, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31abb732b5864d6459041be9ebc9ce5d, type: 3}
@@ -2919,16 +2985,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 4.028796
       objectReference: {fileID: 0}
-    - target: {fileID: 1142700982666097539, guid: 99d24c081666e1d4f97bd06ed696ef86,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 5.6170588
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142700982666097539, guid: 99d24c081666e1d4f97bd06ed696ef86,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.2837639
-      objectReference: {fileID: 0}
     - target: {fileID: 1142700982610419478, guid: 99d24c081666e1d4f97bd06ed696ef86,
         type: 3}
       propertyPath: m_Offset.y
@@ -2938,6 +2994,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.9139843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142700982666097539, guid: 99d24c081666e1d4f97bd06ed696ef86,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 5.6170588
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142700982666097539, guid: 99d24c081666e1d4f97bd06ed696ef86,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2837639
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d24c081666e1d4f97bd06ed696ef86, type: 3}
@@ -2952,6 +3018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406715, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2030409580539406712, guid: 31abb732b5864d6459041be9ebc9ce5d,
         type: 3}
@@ -3022,6 +3093,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.70764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: seconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409582445936680, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31abb732b5864d6459041be9ebc9ce5d, type: 3}
@@ -3393,6 +3484,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crush
       objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406715, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2030409580539406712, guid: 31abb732b5864d6459041be9ebc9ce5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3462,6 +3558,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.70764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: seconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409582445936680, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31abb732b5864d6459041be9ebc9ce5d, type: 3}
@@ -3621,7 +3737,7 @@ PrefabInstance:
     - target: {fileID: 3147651445072820005, guid: 07ff9fdd63941de4e822c78e85a6606a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.479116
+      value: -5.07
       objectReference: {fileID: 0}
     - target: {fileID: 3147651445072820005, guid: 07ff9fdd63941de4e822c78e85a6606a,
         type: 3}
@@ -4482,6 +4598,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 5.97
       objectReference: {fileID: 0}
+    - target: {fileID: 8749714427951177072, guid: e42d033566608c844bd8459b23ad3e5d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3118890354175110112, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4490,7 +4611,7 @@ PrefabInstance:
     - target: {fileID: 6409460928291213344, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
       propertyPath: isOpen
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6787913231433481129, guid: e42d033566608c844bd8459b23ad3e5d,
         type: 3}
@@ -4515,6 +4636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crush (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406715, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2030409580539406712, guid: 31abb732b5864d6459041be9ebc9ce5d,
         type: 3}
@@ -4585,6 +4711,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.70764
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409580539406714, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: seconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030409582445936680, guid: 31abb732b5864d6459041be9ebc9ce5d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31abb732b5864d6459041be9ebc9ce5d, type: 3}
